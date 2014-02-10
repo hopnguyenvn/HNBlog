@@ -1,0 +1,80 @@
+﻿@model IList<HNBlog.Web.Mvc.Controllers.ViewModels.PostViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src= "@Url.Content("~/Scripts/hnblog.post.js")"></script>
+<script src= "@Url.Content("~/Scripts/jquery-dateFormat.min.js")"></script>
+<div class="columnsContainer">
+    <div class="leftColumn">
+        <div class="main-post">
+            <div class="div-scrollable" >
+                <div id="entries" style="width: 100%; height: 100%">
+                    @foreach (var item in Model)
+                    {
+                        <article class="article-@item.PostID.ToString()">
+                            <header>
+                                <h2 class="entry-title">
+                                    <a href= '@Url.Action("Details", new { controller = "Blog", postID = item.PostID })'>@item.Title</a>
+                                </h2>
+                            </header>
+                            <!--end entry-title-->
+                            <div class="entry-content">
+                                <p>
+                                    @item.PostContent</p>
+                            </div>
+                            <!--end entry-content-->
+                            <footer>
+                                <div class="entry-meta">
+                                    <span><a href="#" data-info='{"id":"@item.PostID"}'  onclick="hnblog.removeEntry(this)">Remove</a></span>
+                                    <span class="time" data-date="@item.CreatedDate"></span>
+                                </div>
+                            </footer>
+                            <!--end footer-->
+                        </article><!--end article-->
+                    }
+                </div>
+                <!--end main-->
+            </div>
+            <!--end of div-scrollable-->
+            <div class="post-body">
+                <h2>
+                    Add New Post</h2>
+                <div id="post-title">
+                <span>Title</span>
+                    <textarea id="title"  rows="2"></textarea>
+                </div>
+                <!--end post-content-->
+                <div id="post-content">
+                    <span>Content</span>
+                    <textarea id="content" rows="4"></textarea>
+                </div>
+                <!--end post-content-->
+                <input id="save" type="submit" value="Add Entry" />
+            </div>
+            <!--end  post-body-->
+        </div>
+        <!--end of main-post-->
+    </div>
+    <!--/leftColumn-->
+    <div class="rightColumn">
+        <p>
+            <span>Search</span>
+        </p>
+        <input id="search" />
+        <h2>
+            Archive</h2>
+            <ul>
+                <li>Some more functions will be coming</li>
+            </ul>
+        <h2>
+            Category</h2>
+            <ul>
+                <li>Music</li>
+                <li>Travel</li>
+                <li>Code code</li>
+            </ul>
+    </div>
+    <!--/rightColumn-->
+</div>
+<!--/columnsContainer-->

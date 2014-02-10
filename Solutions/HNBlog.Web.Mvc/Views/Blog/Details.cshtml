@@ -1,0 +1,26 @@
+﻿@model HNBlog.Domain.Post
+@{
+    ViewBag.Title = "PostDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+ <article class="article-@Model.Id.ToString()">
+                <header>
+                    <h1 class="entry-title">
+                        @Model.Title
+                    </h1>
+                </header>
+                <!--end entry-title-->
+                <div class="entry-content">
+                    <p>
+                        @Model.PostContent</p>
+                </div>
+                <!--end entry-content-->
+                <footer>
+                    <div class="entry-meta">
+                        <span data-date="@Model.CreatedDate"></span>
+                    </div>
+                </footer>
+                <!--end footer-->
+            </article><!--end article--></div>
