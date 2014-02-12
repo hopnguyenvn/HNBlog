@@ -72,7 +72,7 @@
                              </div> <!--end entry-content-->\
                             <footer>\
                                 <div class=\"entry-meta\">\
-                                <span><a href=\"#\"  data-info='{\"id\":\"" + id + "\"}'  onclick=\"removeEntry(this)\">Remove</a></span>\
+                                <span><a href=\"#\"  data-info='{\"id\":\"" + id + "\"}'  onclick=\"hnblog.removeEntry(this)\">Remove</a></span>\
                                 <span class=\"time\" data-date=\"" + createdDate + "\">" + formatDate(createdDate) + "</span>\
                                 </div>\
                             </footer> <!--end footer-->\
